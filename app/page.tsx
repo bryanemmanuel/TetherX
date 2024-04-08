@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import HomeCard from '@/components/HomeCard';
 import MeetingTypeList from '@/components/MeetingTypeList';
 import Navbar from '@/components/Navbar'
@@ -7,7 +7,7 @@ import MeetingModal from '@/components/MeetingModal';
 import { Input } from '@/components/ui/input';
 import { useRouter } from 'next/navigation';
 import { Call } from '@stream-io/video-react-sdk';
-import MeetingRoom from '@/components/MeetingRoom';
+
 const now = new Date();
 
 const time = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
@@ -24,11 +24,11 @@ const initialValues = {
 };
 
 
-const page = () => {
+const Page = () => {
   const router = useRouter();
-  const [callDetail, setCallDetail] = useState<Call>();
+  const [callDetail] = useState<Call>();
   const [meetingState, setMeetingState] = useState<
-  'isScheduleMeeting' | 'isJoiningMeeting' | 'isInstantMeeting' | undefined
+'isJoiningMeeting'| undefined
 >(undefined);
 const meetingLink = `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${callDetail?.id}`;
 const [values, setValues] = useState(initialValues);
@@ -82,4 +82,4 @@ const [values, setValues] = useState(initialValues);
   )
 }
 
-export default page
+export default Page
